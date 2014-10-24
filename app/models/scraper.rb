@@ -17,7 +17,7 @@ class Grab_Pizza_Info
     pod_thurs = doc.xpath('//*[@id="body"]/div/div[2]/div[1]/p[3]').text
 
     date_fri = doc.xpath('//*[@id="body"]/div/div[2]/div[1]/h4[5]').text
-    pod_fri = doc.xpath('//*[@id="body"]/div/div[2]/div[1]/p[4]').text
+    pod_fri = doc.xpath('//*[@id="body"]/div/div[2]/div[1]/p[4]').text.gsub!("Ã¨", "e")
 
     date_sat = doc.xpath('//*[@id="body"]/div/div[2]/div[1]/h4[6]').text
     pod_sat = doc.xpath('//*[@id="body"]/div/div[2]/div[1]/p[5]').text
@@ -27,6 +27,4 @@ class Grab_Pizza_Info
   end
 end
 
-
-# p Grab_Pizza_Info.scrape_cb_site
-
+Grab_Pizza_Info.scrape_cb_site
