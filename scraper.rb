@@ -4,7 +4,7 @@ require 'open-uri'
 class Grab_Pizza_Info
   attr_reader :week_data
 
-  def scrape_cb_site
+  def self.scrape_cb_site
     doc = Nokogiri::HTML(open('http://www.cheeseboardcollective.coop/pizza'))
 
     date_tues = doc.xpath('//*[@id="body"]/div/div[2]/div[1]/h4[2]')
@@ -22,7 +22,12 @@ class Grab_Pizza_Info
     date_sat = doc.xpath('//*[@id="body"]/div/div[2]/div[1]/h4[6]')
     pod_sat = doc.xpath('//*[@id="body"]/div/div[2]/div[1]/p[5]')
 
-    @week_data = [[pod_tues,date_tues],[pod_weds,date_wed],[pod_thurs,date_thurs],[pod_fri,date_fri],[pod_sat,date_sat]]
+   @week_data = [[pod_tues,date_tues],[pod_wed,date_wed],[pod_thurs,date_thurs],[pod_fri,date_fri],[pod_sat,date_sat]]
 
   end
 end
+
+
+
+p Grab_Pizza_Info.scrape_cb_site
+
