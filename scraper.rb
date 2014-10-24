@@ -1,31 +1,27 @@
 require 'nokogiri'
 require 'open-uri'
 
-doc = Nokogiri::HTML(open('http://www.cheeseboardcollective.coop/pizza'))
+class Grab_Pizza_Info
+  attr_reader :week_data
 
-p date_tuesday = doc.xpath('//*[@id="body"]/div/div[2]/div[1]/h4[2]')
-p pod_tuesday = doc.xpath('//*[@id="body"]/div/div[2]/div[1]/p[1]')
-"================="
-p date_wednesdapy = doc.xpath('//*[@id="body"]/div/div[2]/div[1]/h4[3]')
-p pod_wednesday = doc.xpath('//*[@id="body"]/div/div[2]/div[1]/p[2]')
-"================="
-p date_thursday = doc.xpath('//*[@id="body"]/div/div[2]/div[1]/h4[4]')
-p pod_thursday = doc.xpath('//*[@id="body"]/div/div[2]/div[1]/p[3]')
-"================="
-p date_friday = doc.xpath('//*[@id="body"]/div/div[2]/div[1]/h4[5]')
-p pod_friday = doc.xpath('//*[@id="body"]/div/div[2]/div[1]/p[4]')
-"================="
-p date_saturday = doc.xpath('//*[@id="body"]/div/div[2]/div[1]/h4[6]')
-p pod_saturday = doc.xpath('//*[@id="body"]/div/div[2]/div[1]/p[5]')
+  def scrape_cb_site
+    doc = Nokogiri::HTML(open('http://www.cheeseboardcollective.coop/pizza'))
 
+    date_tues = doc.xpath('//*[@id="body"]/div/div[2]/div[1]/h4[2]')
+    pod_tues = doc.xpath('//*[@id="body"]/div/div[2]/div[1]/p[1]')
 
+    date_wed = doc.xpath('//*[@id="body"]/div/div[2]/div[1]/h4[3]')
+    pod_wed = doc.xpath('//*[@id="body"]/div/div[2]/div[1]/p[2]')
 
-# P.O.D. = date, details
+    date_thurs = doc.xpath('//*[@id="body"]/div/div[2]/div[1]/h4[4]')
+    pod_thurs = doc.xpath('//*[@id="body"]/div/div[2]/div[1]/p[3]')
 
+    date_fri = doc.xpath('//*[@id="body"]/div/div[2]/div[1]/h4[5]')
+    pod_fri = doc.xpath('//*[@id="body"]/div/div[2]/div[1]/p[4]')
 
-#body > div > div.columns > div:nth-child(1) > p:nth-child(4)
+    date_sat = doc.xpath('//*[@id="body"]/div/div[2]/div[1]/h4[6]')
+    pod_sat = doc.xpath('//*[@id="body"]/div/div[2]/div[1]/p[5]')
 
+    @week_data = [[pod_tues,date_tues],[pod_weds,date_wed],[pod_thurs,date_thurs],[pod_fri,date_fri],[pod_sat,date_sat]]
 
-# //*[@id="body"]/div/div[2]/div[1]/h4[2]
-
-# //*[@id="body"]/div/div[2]/div[1]/p[1]
+  end
