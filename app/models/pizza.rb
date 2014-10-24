@@ -10,7 +10,7 @@ class Pizza < ActiveRecord::Base
     if today.wday == 1 || today.wday == 7
       puts "There is no pizza of the day on Monday or Sunday"
     else
-      Pizza.where(date: Time.now.strftime("%Y-%m-%d") )
+      Pizza.where(date: Time.now.strftime("%Y-%m-%d") ).first
     end
   end
 end

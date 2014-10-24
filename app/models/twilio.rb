@@ -21,13 +21,16 @@ class TwilioSender
     auth_token = '5251a57a7f7b6f997e6bb01b41024bc9'
     @client = Twilio::REST::Client.new account_sid, auth_token
 
-    message = @client.account.messages.create(:body => "Jenny please?! I love you <3",
-        :to => "+15103862974",
+    pizza_from_data = Pizza.get_pizza_of_day
+    users = User.all
+    users.each do |user|
+      puts "user.phone is #{user.phone}"
+
+    message = @client.account.messages.create(
+        :body => pizza_from_data.description,
+        :to => user.phone,
         :from => "+14155992671") #+17075145821
-        #:media_url => "http://www.example.com/hearts.png")
-    #puts message.to
-
-
+    end
   end
 end
 

@@ -9,12 +9,6 @@ puts "Hello world from pizzaphone"
 
 
 ## Scrape CheeseBoard for weekly pizzas
-pizzas = Grab_Pizza_Info.scrape_cb_site
-puts "pizzas is:"
-p pizzas
-pizzas.each do |pizza|
-  pod1 = PizzaOfTheDay.new(pizza)
-  Pizza.set_pizza_of_day(pod1)
-end
-#TwilioSender.send_text_message
+
+TwilioSender.send_text_message
 
