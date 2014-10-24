@@ -10,7 +10,7 @@ class Run
     Grab_Pizza_Info.scrape_cb_site
   end
 
-  # def connect_to_subscriber_list
+  # def connect_and_iterate_subscriber_list
   # end
 
   def self.send_text_message
@@ -22,10 +22,10 @@ class Run
     @client = Twilio::REST::Client.new account_sid, auth_token
 
     message = @client.account.messages.create(:body => "Jenny please?! I love you <3",
-        :to => "+17075145821",
-        :from => "+17075145821",
-        :media_url => "http://www.example.com/hearts.png")
-    puts message.to
+        :to => "+15103862974",
+        :from => "+14155992671") #+17075145821
+        #:media_url => "http://www.example.com/hearts.png")
+    #puts message.to
 
 
   end
@@ -36,14 +36,12 @@ end
 Run.send_text_message
 
 
+# class View
 
-
-class View
-
-    def self.display
-      p date
-      p
-      p POD
-    #DATABASERECORDS
-    end
-end
+#     def self.display
+#       p date
+#       p
+#       p POD
+#     #DATABASERECORDS
+#     end
+# end
