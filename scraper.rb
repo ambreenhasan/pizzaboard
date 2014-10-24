@@ -25,3 +25,4 @@ class Grab_Pizza_Info
     @week_data = [[pod_tues,date_tues],[pod_weds,date_wed],[pod_thurs,date_thurs],[pod_fri,date_fri],[pod_sat,date_sat]]
 
   end
+end
