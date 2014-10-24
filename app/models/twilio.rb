@@ -4,7 +4,7 @@ require 'twilio-ruby'
 #require_relative "scraper.rb"
 
 
-class Run
+class TwilioSender
 
   def grab_pizza_data
     Grab_Pizza_Info.scrape_cb_site
@@ -33,7 +33,7 @@ end
 
 
 
-Run.send_text_message
+
 
 
 # class View
