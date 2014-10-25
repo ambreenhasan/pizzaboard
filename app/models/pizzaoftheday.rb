@@ -1,4 +1,5 @@
-require 'date'
+require_relative '../../config/application'
+
 class PizzaOfTheDay
   attr_reader :description, :date
 

@@ -1,5 +1,4 @@
-require 'nokogiri'
-require 'open-uri'
+require_relative '../../config/application'
 
 class Grab_Pizza_Info
   attr_reader :week_data
