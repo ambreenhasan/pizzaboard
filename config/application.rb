@@ -2,6 +2,19 @@ require 'pathname'
 require 'sqlite3'
 require 'active_record'
 require 'logger'
+require 'Date'
+require 'nokogiri'
+require 'open-uri'
+require 'rubygems' # not necessary with ruby 1.9 but included for completeness
+require 'twilio-ruby'
+
+#unsure if the below is best practice, since the above are not folders?
+
+require_relative '../app/models/pizza'
+require_relative '../app/models/pizzaoftheday'
+require_relative '../app/models/scraper'
+
+
 
 APP_ROOT = Pathname.new(File.expand_path(File.join(File.dirname(__FILE__), '..')))
 

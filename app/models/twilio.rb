@@ -1,5 +1,4 @@
-require 'rubygems' # not necessary with ruby 1.9 but included for completeness
-require 'twilio-ruby'
+require_relative '../../config/application'
 
 class TwilioSender
 
@@ -16,12 +15,14 @@ class TwilioSender
     pizza_from_data = Pizza.get_pizza_of_day
     users = User.all
     users.each do |user|
-      puts "Sending to user phone number: #{user.phone}"
+      if user.deliverable ==true:
+        puts "Sending to user phone number: #{user.phone}"
 
-    message = @client.account.messages.create(
-        :body => pizza_from_data.description,
-        :to => user.phone,
-        :from => "")
+        message = @client.account.messages.create(
+          :body => pizza_from_data.description,
+          :to => user.phone,
+          :from => "")
+      end
     end
   end
 end

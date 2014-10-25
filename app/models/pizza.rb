@@ -1,4 +1,5 @@
-require 'Date'
+require_relative '../../config/application'
+
 class Pizza < ActiveRecord::Base
 
   def self.set_pizza_of_day(pod)
