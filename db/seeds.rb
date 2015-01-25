@@ -3,7 +3,7 @@ require_relative '../app/models/pizzaoftheday'
 require_relative '../app/models/scraper'
 
 # create a user by entering your name and phone number in the empty strings below
-User.create(name: '', phone: '')
+User.create(name: 'Ambreen', phone: '15103862974')
 
 
 
