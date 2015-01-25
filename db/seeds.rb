@@ -1,11 +1,6 @@
-require_relative '../app/models/pizza'
-require_relative '../app/models/pizzaoftheday'
-require_relative '../app/models/scraper'
-
+require_relative '../config/application'
 # create a user by entering your name and phone number in the empty strings below
-User.create(name: 'Ambreen', phone: '15103862974')
-
-
+User.create(name: 'Ambreen', phone: ENV['MY_NUMBER'])
 
 pizzas = Grab_Pizza_Info.scrape_cb_site
 
