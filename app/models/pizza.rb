@@ -8,10 +8,15 @@ class Pizza < ActiveRecord::Base
 
   def self.get_pizza_of_day
     today = Date.today
-    if today.wday == 1 || today.wday == 7
-      puts "There is no pizza of the day on Monday or Sunday"
+
+    if today.wday == 1
+      puts "There is no pizza of the day on Monday. Sending Tuesday's pizza"
+      Pizza.where(date: (DateTime.now + 1).strftime("%Y-%m-%d") ).first
+    elsif today.wday == 0
+      puts "There is no pizza of the day on Sunday. Sending Tuesday's pizza"
+      Pizza.where(date: (DateTime.now + 2).strftime("%Y-%m-%d") ).first
     else
-      Pizza.where(date: Time.now.strftime("%Y-%m-%d") ).first
+      Pizza.where(date: DateTime.now.strftime("%Y-%m-%d") ).first
     end
   end
 end

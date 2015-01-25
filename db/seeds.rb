@@ -1,6 +1,6 @@
 require_relative '../config/application'
 # create a user by entering your name and phone number in the empty strings below
-User.create(name: 'Ambreen', phone: ENV['MY_NUMBER'])
+User.create(name: 'Ambreen', phone: ENV['MY_NUMBER'], )
 
 pizzas = Grab_Pizza_Info.scrape_cb_site
 

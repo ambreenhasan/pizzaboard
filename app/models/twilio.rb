@@ -2,7 +2,7 @@ require_relative '../../config/application'
 
 class TwilioSender
 
-  def grab_pizza_data
+  def self.grab_pizza_data
     Grab_Pizza_Info.scrape_cb_site
   end
 
@@ -17,6 +17,7 @@ class TwilioSender
     users.each do |user|
       if user.deliverable == true
         puts "Sending to user phone number: #{user.phone}"
+        puts pizza_from_data.description
 
     message = @client.account.messages.create(
         :body => pizza_from_data.description,

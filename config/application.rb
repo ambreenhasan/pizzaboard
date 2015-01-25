@@ -13,8 +13,10 @@ require 'twilio-ruby'
 require_relative '../app/models/pizza'
 require_relative '../app/models/pizzaoftheday'
 require_relative '../app/models/scraper'
+require_relative '../app/models/twilio'
 
-
+require 'dotenv'
+Dotenv.load
 
 APP_ROOT = Pathname.new(File.expand_path(File.join(File.dirname(__FILE__), '..')))
 
